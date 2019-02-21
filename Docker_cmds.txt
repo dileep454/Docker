@@ -1,0 +1,76 @@
+Docker Commands
+=========================
+docker --version
+# Displays the docker version and build
+docker version
+# Displays version, API version, GO version and detailed information
+docker info
+# Displays all the information related container, images etc
+docker pull hello-world
+# pulls the docker image hello world for docker hub
+docker run hello-world /$ docker container run hello-world
+# first checks for the image locally if present then runs the image else pull the latest image from docker hub,
+docker ps
+# Displays running processess (i.e displays the information of running containers)   
+docker ps -a 
+# Displays information of all the processess.
+docker container ls  
+#New command in latest version similar to docker ps
+docker container ls -a  
+#New command in latest version similar to docker ps -a
+docker images
+
+docker image images
+#latest command same as docker images (As the docker people are saying the old commands will be depricated)
+
+docker run -it ubuntu /bin/bash
+# runs a ubuntu docker image and open the ubuntu terminal
+-i -------> interactive
+-t --------> terminal
+/bin/bash  -- command line arguments
+
+ctrl+p+q (process quit)
+dont want to stop the container but come out of it 
+container will be running the backed as daemon
+
+docker start <container name>
+#starts the container
+docker stop <container name>
+#stops the running container
+
+docker attach <container name>
+#connects to the container which is running the background
+
+when the docker container is in stop mode and we try to use attach the it will throw an error saying 
+
+docker rm <container name/container id>
+# used to delete the container
+
+docker ps -aq
+# it will list all the container id's 
+
+docker rm -f $(docker container ls -aq)
+# delets all the containers forcefully
+-f forcefully
+
+docker info | grep -i container
+# displays the number of running containers
+
+docker info | grep -i running
+# displays all the running containers
+
+docker info | grep -i images
+# displays the number of images
+
+docker rmi <name of the image>
+# removes the image 
+
+docker images -aq
+# displays all the image id's 
+
+docker image rmi -f $(docker image ls -aq)
+# deletes all the images at once forecefully
+
+docker run -itd ubuntu /bin/bash
+# runs a ubuntu docker image
+-d detached mode it runs in the background
