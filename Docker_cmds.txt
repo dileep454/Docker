@@ -78,3 +78,17 @@ docker run -itd ubuntu /bin/bash
 docker run --name docker-nginx -p 8080:8080 nginx
 # runs nginx docker image on port 80
 -p indicates port/publish
+
+sudo docker run --name docker-nginx -p 80:80 -d -v ~/docker-nginx/html:/usr/share/nginx/html nginx
+
+sudo docker run --name docker-nginx -p 80:80 -v ~/docker-nginx/html:/usr/share/nginx/html -v ~/docker-nginx/default.conf:/etc/nginx/conf.d/default.conf -d nginx
+docker run --name <any name> -itd ubuntu /bin/bash
+-i --- interactive
+-t --- terminal
+-d --- deatached mode
+/bin/bash -- terminal
+
+sudo docker cp docker-nginx:/etc/nginx/conf.d/default.conf default.conf
+#If you'd like to take a look at the default config file, just copy it using the Docker copy command:
+-v indicate voulume : is used to link the shared volumes
+to the left side of : is the directory in the host system and to the right side of : is directory in container
